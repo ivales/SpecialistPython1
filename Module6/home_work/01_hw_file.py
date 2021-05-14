@@ -1,6 +1,8 @@
 # Напишите функцию log() принимающую в качестве аргумента строку и дописывающую это строку в конец файла
 
 def log(text, file="log.txt"):
+    with open(file, 'a') as f:
+        f.write(text)
     pass
 
 
