@@ -9,3 +9,11 @@
 # Подсказка:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
+from itertools import groupby
+with open('data/fruits.txt', encoding='utf-8') as input_file:
+    for liter, data in groupby(input_file.readlines(), key=lambda liter: liter[0]):
+        if liter != '\n':
+            output_file = 'data/fruit_{}.txt'.format(liter)
+            with open(output_file, 'a') as out:
+                for x in data:
+                    out.write(x)
