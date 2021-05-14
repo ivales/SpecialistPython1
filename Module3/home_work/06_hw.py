@@ -33,13 +33,43 @@ items = [
 ]
 # Найдите:
 print("Товары на складе представлены брэндами: ")
-
+brands = []
+for item in items:
+    brands.append(item["brand"])
+brands_short = []
+for brand in brands:
+    if brand not in brands_short:
+        brands_short.append(brand)
+for el in brands_short:
+    print(el)
 # TODO: your code here
 
 print("На складе больше всего товаров брэнда(ов): ")
+brands_count = {brand: brands.count(brand) for brand in brands}
+count_max = 0
+brand_count_max = []
+for brand in brands_short:
+    if brands_count[brand] > count_max:
+        brand_count_max.append(brand)
+for brand in brands_short:
+    if brands_count[brand] == count_max:
+        brand_count_max.append(brand)
+for brand in brand_count_max:
+    print(brand)
 
 # TODO: your code here
 
 print("На складе самый дорогой товар брэнда(ов): ")
+brand_prices = {}
+for item in items:
+    brand_prices[item["price"]] = item["brand"]
+prices = brand_prices.keys()
+max_price = max(prices)
+max_prices = []
+for price in prices:
+    if price == max_price:
+        max_prices.append(brand_prices[price])
+for el in max_prices:
+    print(el)
 
 # TODO: your code here

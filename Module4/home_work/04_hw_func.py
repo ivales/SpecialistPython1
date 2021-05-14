@@ -9,6 +9,23 @@
 # Ввод: -2/3 - -2
 # Вывод: 1 1/3
 
-# TODO: your code here
+import re
+from fractions import Fraction
 
 
+def frac(s):
+    a, op, b = re.split(r'( [+] | [-] | [*] | [/])', s)
+    a = sum([abs(Fraction(x)) for x in a.split()]) * (-1 if a[0] == '-' else 1)
+    b = sum([abs(Fraction(x)) for x in b.split()]) * (-1 if b[0] == '-' else 1)
+    res = eval('a' + op + 'b')
+    x, y = res.numerator, res.denominator
+    if y == 1:
+        return x
+    else:
+        n, p = divmod(abs(x), y)
+        if n:
+            return f'{-n if x < 0 else n} {p}/{y}'
+        return f'{x}/{y}'
+
+
+print(frac(input('Введите дробное выражение: \n')))

@@ -3,6 +3,7 @@
 
 def distance(x1, y1, x2, y2):
     # TODO: your code here
+    return ((y2-y1)**2+(x1-x2)**2)**0.5
     pass
 
 

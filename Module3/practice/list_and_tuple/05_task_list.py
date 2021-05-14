@@ -3,9 +3,21 @@
 # выровненного по правой стороне - слева короткие слова дополняем символами пробела
 
 # Исходные данные:
-fruits = ["яблоко", "банан", "киви", "арбуз"]
-
-# TODO: your code here
+fruits = ["яблоко", "банан", "киви", "арбуз", "kjk", "rr", "r"]
+k = 1
+max_length = 0
+for fruit in fruits:
+    if len(fruit) > max_length:
+        max_length = len(fruit)
+for fruit in fruits:
+    if len(fruit) < max_length:
+        i = 0
+        dif_length=max_length-len(fruit)
+        while i < dif_length:
+            fruit = " " + fruit
+            i += 1
+    print(str(k) + '.', fruit)
+    k += 1
 
 # Пример вывода:
 # 1. яблоко
