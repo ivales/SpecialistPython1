@@ -8,3 +8,22 @@
 # 4. Профессия
 # 5. Зарплата
 # Примечание: Данные сгенерированных сотрудников могут повторяться
+import random
+import string
+
+
+def generate_random_string():
+    letters = string.ascii_lowercase
+    rand_string = ''.join(random.choice(letters) for i in range(20))
+    return rand_string
+
+
+def random_list():
+    list_employee = [generate_random_string(), generate_random_string(), random.randint(18, 100),
+                     generate_random_string(), random.randint(20000, 100000)]
+    return list_employee
+
+
+big_list=[]
+for i in range(1000):
+    big_list.append(random_list())
