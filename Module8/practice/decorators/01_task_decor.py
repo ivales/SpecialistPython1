@@ -7,3 +7,13 @@
 # *23*
 # ****
 # (кол-во звездочек зависит от длины возвращаемого значения)
+def stars(func):
+    def wrapper():
+        print('*'*(len(func())+2))
+        print(func().center(len(func())+2, '*'))
+        print('*'*(len(func())+2))
+    return wrapper()
+
+@stars
+def hello():
+    return 'hello'
